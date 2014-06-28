@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "_Layoutmy";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+              <link href="~/Content/style.css" rel="stylesheet" />
+
+		<!--[if lte IE 8]><script src="html5shiv.js" type="text/javascript"></script><![endif]-->
+		<script src="~/Script/jquery-1.10.1.min.js"></script>
+		<script src="~/Script/jquery.dropotron.min.js"></script>		
+		<script src="~/Script/skel.min.js">
+		{
+			prefix: 'css/style',
+			preloadStyleSheets: true,
+			resetCSS: true,
+			boxModel: 'border',
+			grid: { gutters: 30 },
+			breakpoints: {
+				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+				narrow: { range: '481-1199', containers: 960 },
+				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+			}
+		}
+		</script>
+		<script>
+			$(function() {
+
+				// Note: make sure you call dropotron on the top level <ul>
+				$('#main-nav > ul').dropotron({ 
+					offsetY: -10 // Nudge up submenus by 10px to account for padding
+				});
+
+			});
+		</script>
+		<script>
+			// DOM ready
+			$(function() {
+    
+			// Create the dropdown base
+			$("<select />").appendTo("nav");
+   
+			// Create default option "Go to..."
+			$("<option />", {
+				"selected": "selected",
+				"value"   : "",
+				"text"    : "Menu"
+			}).appendTo("nav select");
+   
+			// Populate dropdown with menu items
+			$("nav a").each(function() {
+			var el = $(this);
+			$("<option />", {
+				"value"   : el.attr("href"),
+				"text"    : el.text()
+			}).appendTo("nav select");
+			});
+   
+			// To make dropdown actually work
+			// To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+			$("nav select").change(function() {
+				window.location = $(this).find("option:selected").val();
+			});
+  
+			});
+
+		</script>	
+        @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+       
+    <div id="header_container">		
+		    <div class="container">
+			<!-- Header -->
+				<div id="header" class="row">
+					<div class="4u">
+						<div class="transparent">
+							<h1><a href="index.html">career<span class="header_colour">.com</span></a></h1>
+							
+					    </div>
+					</div>
+					
+					<nav id="main-nav" class="8u">
+						<ul>
+							<li><a href="/EX/index">Home</a></li>
+							
+							<li><a href="/EX/apage">Employers</a></li>
+                           	<li><a href="/Home/Contact">Contact</a></li>
+                           	<li><a href="/Home/About us">About us</a></li>
+                           
+                 
+												
+							  <li><a href="~/Login/Signin">Logout</a></li >	
+                            
+							<li><a href="contact.php">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>	
+        </div>	
+     @RenderBody()
+    	<div id="footer_container">
+			<div class="container">	
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <footer>
+					<p><img src="~/images/twitter.png" alt="twitter" />&nbsp;<img src="~/images/facebook.png" alt="facebook" />&nbsp;<img src="~/images/rss.png" alt="rss" /></p>
+					<p><a href="/Home/index">Home</a> | <a href="/Home/examples">Examples</a> | <a href="/Home/apage">A Page</a> | <a href="/Home/anotherpage">Another Page</a> | <a href="/Home/contact">Contact Us</a></p>
+				</footer>	
+</div>
+        </div>
+</body>
+</html>

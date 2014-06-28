@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutSec.cshtml";
+}
+
+@model mywebproject.Models.Product
+
+<script>
+    @{
+        HttpCookie cookie = Request.Cookies["login"];
+        string value = Server.HtmlEncode(cookie.Value);   
+    }
+    
+</script>
+    <div class="span6">
+        <div class="span4">
+                <a href="#" class="thumbnail">
+                    <img src="~/Files/@Model.Pictures" alt="125x125" width="200" height="200">
+
+         </a>
+            </div>
+       
+        <h4>Tittle :  @Model.Tittle</h4>
+        <h4>Company :  @Model.Company</h4>
+        <h4>Category :  @Model.Category</h4>   
+
+             <h4>Req_Experience:  @Model.Req_Experience</h4>
+              <h4>Req_Education :  @Model.Req_Education</h4>
+             <h4>Skills:  @Model.Skills</h4> 
+            <h4>No_of_Vacancies :  @Model.No_of_Vacancies</h4>
+           <h4>Shift_time:  @Model.Shift_time</h4>] 
+         <h4>Skills:  @Model.Skills</h4>
+           <h4>salary:  @Model.Salary</h4>
+            <h4>Posted_on:  @Model.Posted_on</h4>
+           <h4>LastDate:  @Model.LastDate</h4> 
+            <h4>Phone:  @Model.Phone</h4>
+           <h4>Address:  @Model.Address</h4> 
+
+           
+        
+        </table>
+        <!--<input type="hidden" id="check1" value="@value" />-->
+    </div>
+    <div class="span4">
+        <table>
+        <h3>Apply for job</h3>
+       @* @using (Html.BeginForm("Showcart", "Cart", FormMethod.Post))
+        {
+        @Html.Hidden("tittle",@Model.Tittle)
+        <h4>Quantity</h4>
+        <input type=text name="quantity" id="q1" /><br />*@
+            }
+            <button class="btn  btn-info" type="submit" onclick="return check_login(this)" >Apply</button>
+        
+       
+                </table>
+        <div id="d1" style="color:red"></div>
+        <br><br>
+  
+        
+
+    </div>

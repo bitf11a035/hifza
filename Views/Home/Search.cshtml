@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Search";
+  
+}
+
+<h2>Search</h2>
+<div class="span6">
+        <h2>Search Result</h2>
+    </div>
+    <div class="span9"  >
+         <h6> SEARCH BY: </h6>
+            
+            <select style="width:50%" id="search">
+                <option > Tittle </option>
+                <option > Price </option>
+                <option > Company </option>
+            </select>
+        <div id="view">
+            <table id=table1>
+                </table>
+        </div>
+        <div>
+            <table id=table>
+                </table>
+             </div>
+         <script>
+             $(document).ready(function () {
+                 $('#search').change(function () {
+                     value = $('#search').val();
+                     $('#table1 tr').remove();
+                     $('#table tr').remove();
+                     //search through title
+                     if (value == "Tittle") {
+                         
+                         $('#table1').append('<tr><td>@Html.Label("Tittle")</td></tr><tr><td><input type=text id=tittle  /></td></tr><tr><td><Button id=but>Search</Button></td></tr>');
+                         $('#table1').append('<tr><td>@Html.Label("heer")</td></td><tr><td><input type=text id=xyz /></td></tr>')
+                         $('#but').click(function () {
+                             tittle = $('#tittle').val();
+                             $.getJSON("../Ads/getProductDetails?tittle=" + tittle, function (data) {
+
+                                 $('#table tr').remove();
+                                 $.each(data, function (i, item) {
+                                     $('#table').append('<tr class="span3"><td><div class="thumbnail"><input type=Hidden name="tittle" value="' + item.AD_Tittle + '" />');
+                                     //<img src="../../Files/' + item.Pictures + '" alt="Sample Image" width="100" height="100">  <div class="caption"><h4>' + item.AD Tittle + '</h4><table><tr><td><form method="Post" action="../../Home/Details">
+                                     //<input type=Hidden name="tittle" value="' + item.Tittle + '" /><input type=submit class="btn btn-info" value="Details"/></form></td> <td><form method="Post" action="../../Home/Showpictures"><input type=Hidden name="tittle" value="' + item.Tittle + '" /><input type=submit class="btn btn-info" value="Pictures"/></form></td></tr> </table></div></div></td></tr>  ');
+
+                                 });
+
+                             });
+                         });
+                     }
+                 });
+             });
+                     </script>
+       </div>

@@ -1,0 +1,61 @@
+﻿@model mywebproject.Models.UserSign
+
+@{
+    ViewBag.Title = "signin";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    }
+
+
+<!DOCTYPE HTML>
+<html>
+	<body>
+		
+		<link href="~/Content/style.css" rel="stylesheet" />
+		
+
+		<div id="site_content">		
+			<div class="container">			
+				
+			<!-- Features -->
+				<div class="row">
+					<section class="8u">
+						
+					 <!-- Banner -->		
+					<div id="banner">
+							<a href="#"><img src="~/images/f1.jpg" alt="banner image" /></a>
+						</div>						
+						
+						
+                     
+
+                         <form action="/Login/UserLogin" method="post">
+             <div class="form_settings">
+		@Html.LabelFor(model => model.Email)
+           @Html.TextBoxFor(model => model.Email,new { id = "Email",name="Email" })
+		
+       @Html.LabelFor(model => model.Password)
+		 @Html.PasswordFor(model => model.Password,new { id = "Password",name="Password" })
+
+        <input type="submit" value="Log in"/>
+        </div>
+    </>
+	</form>
+
+
+					</section>
+
+					
+					<section class="4u">
+						<div id="sidebar">
+							
+							
+							
+						</div>
+					</section>
+					
+				</div>
+		    </div>
+		</div>		
+		
+	</body>
+</html>

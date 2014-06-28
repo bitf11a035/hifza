@@ -1,0 +1,131 @@
+﻿
+@model List<mywebproject.Models.Product>
+@{
+    ViewBag.Title = "ViewResume";
+    Layout = "~/Views/Shared/_LayoutSec.cshtml";
+
+        //HttpCookie cookie = Request.Cookies["login"];
+        //string value = Server.HtmlEncode(cookie.Value);   
+}
+
+
+<html>
+	<body>
+		
+		
+		<link href="~/Content/style.css" rel="stylesheet" />
+			
+
+		<div id="site_content">		
+			<div class="container">			
+				
+			<!-- Features -->
+				<div class="row">
+					<section class="8u">
+						
+					 <!-- Banner -->		
+						<div id="banner">
+							<a href="#"><img src="~/images/D.jpg" alt="banner image" /></a>
+						</div>
+                        				</section>	
+                    <div>				
+						<h1> Category</h1>
+                <td>
+                    <select name="catagory">
+                        <option> Accounting </option>
+                        <option> Engineering </option>
+                        <option> NGO</option>
+                        <option> Telecom </option>
+                        <option> Media </option>
+                        <option> Call Center </option>
+                        <option> Education </option>
+                        <option> Finance</option>
+                        <option> Banking </option>
+                        <option> Hr </option>
+                        <option> Law </option>
+                        <option> Architect </option>
+                        <option> Finance</option>
+                        <option> Banking </option>
+                        <option> Sales </option>
+                        <option> Management </option>
+                        <option> Others </option>
+                    </select>
+                </td>
+						</div>
+                               @*  <br>Resume Title   :<input type="text" name="email   ">
+                                            <input type="submit" value="VIEW RESUME">*@
+
+		
+                    @foreach(var x in ViewBag.X)
+                        {
+                  
+                       <h1>Ad Tittle : @x.Tittle</h1>
+                                             <div class="extra-wrap" >
+                                        <a href="#"> <img src="~/Files/@x.Pictures" alt="125x125" width="200" height="200"></a>
+
+                                                
+                                                @* <p class="p1">contact information :</p>
+                                                <p class="p1">First Name : @x.First_name</p>
+                                                <p class="p1">last Name : Rs: @x.Last_name</p>
+                                                <p class="p1">National Id Card No: @x.Nic</p>
+                                          
+                                                
+                                                  <p class="p1">Email  : @x.Email</p>
+                                                <p class="p1">Mobile   : @x.Mobile</p>
+                                                <p class="p1">Address : Rs: @x.Address</p>
+                                                <p class="p1">country : @x.country</p>
+                                                 <p class="p1">   Employement Details :</p>
+                                              <p class="p1">Experience    : @x.Experience</p>
+                                                <p class="p1">Skills   : @x.Skills</p>
+                                                <p class="p1">Your company  : Rs: @x.Company</p>
+                                                <p class="p1">Function Area  : @x.Func_Area</p>
+
+
+                                                      <p class="p1">Education Background :</p>
+                                                <p class="p1">Education    : @x.Education</p>
+                                                <p class="p1">Bachulars  : Rs: @x.Bachulars</p>
+                                                <p class="p1">Masters : @x.Masters</p>
+                                                  <p class="p1">Cgpa   : @x.Cgpa</p>*@
+                                                
+
+                                                 @using (Html.BeginForm("Details", "Home", FormMethod.Post))
+                                                 
+                                                 
+                         {
+                                                     
+                                                     <p class="p1">
+                                                     @Html.ActionLink("Details", "Details", new { tittle=@x.Tittle }) </p>
+                                               
+                                                 }  
+                            @*<button type="submit" class="btn btn-info"> Details</button>
+                         } *@
+
+
+
+                            @*                     <p class="p1">
+
+
+                                                     @Html.ActionLink("Detail", "Detail", new { tittle=x.Tittle }) </p>
+                                                 
+                                                      @Html.Hidden("tittle",@x.Tittle);
+                                               @Html.ActionLink("Update", "updateResume", new { id=x.res_Id }) |
+                                                 @Html.ActionLink("Delete", "DeleteResume", new { id=x.res_Id })*@
+                        
+                                           </div>
+                                         
+    }
+					
+					<section class="4u">
+						<div id="sidebar">
+							
+							
+							
+						</div>
+					</section>
+					
+				</div>
+		    </div>
+		</div>		
+			
+	</body>
+</html>

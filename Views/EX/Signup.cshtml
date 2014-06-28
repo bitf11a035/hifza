@@ -1,0 +1,150 @@
+﻿@model mywebproject.Models.EmpSign
+
+@{
+    ViewBag.Title = "signup";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<h2>Sign Up </h2>
+
+<html>
+	<body>
+		
+		<link href="~/Content/style.css" rel="stylesheet" />
+		
+
+					<section class="8u">
+				
+			<!-- Features -->
+				
+						
+					 <!-- Banner -->		
+					<!--	<div id="banner">
+							<a href="#"><img src="~/images/banner.jpg" alt="banner image" /></a>
+						</div>						
+						-->
+			<div class="form_settings">
+                	
+            @*  <form action="~/Home/signup1" method="post">
+            <div id="checking">Checking...</div>
+         
+               
+                 <div class="form_settings">
+               
+            
+                      <br>Email         :<input type="text" name="email" id="email" />
+                   
+                     <input type="button" id="b1" value="Check" />
+                      <div id="result"></div>
+                 <span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="uname" data-valmsg-replace="true"></span></span> 
+                    
+                     <br>First Name    :<input type="text" id="fname" name="fname">
+
+                    
+                        <br>Dob     :<input type="text" id="d" name="d     ">
+           
+                   <br>Password      :<input type="password" id="pass" name="pass">
+                  
+                    <br>Confirm Password      :<input type="text"  name="password  ">
+                    
+                      <br>country       :<input type="text" id="country"  name="country">
+                         
+                         
+                          <br>Mobile :<input type="text" id="mob"  name="mob">
+                           
+
+
+                 
+                  <input type="submit" value=" SUBMIT ">
+                     </div>
+                  
+                      
+            
+                      </form>
+                        
+                 </div>                           
+                </section>*@
+
+    
+            <!--usrname-->
+             
+          
+                    @using (Html.BeginForm("signupcheck", "Account", FormMethod.Post))
+     {
+    
+         @Html.ValidationSummary(true);
+      
+          <tr><td><p >@Html.LabelFor(m => m.First_Name)</p></td><td>  @Html.TextBoxFor(m => m.First_Name)</td>  <td> @Html.ValidationMessageFor(m=> m.First_Name)</td></tr>
+            
+<div>
+    <tr><td><p >@Html.LabelFor(m => m.Email)</p></td><td>  @Html.TextBoxFor(m => m.Email)</td><td> @Html.ValidationMessageFor(m=> m.Email)</td>
+          @*<tr><td><p>Email: </p></td><td> <input type="email" id="E" /></td><td>*@<td><input type="button" id="b1" value="Check" /></td></tr>
+  
+           <div id="result"></div>
+            
+</div>
+		  <tr><td><p >@Html.LabelFor(m => m.Password)</p></td><td> @Html.TextBoxFor(m => m.Password)</td> <td> @Html.ValidationMessageFor(m=> m.Password)</td></tr>
+ 		 <tr><td><p >@Html.LabelFor(m => m.City)</p> </td><td>@Html.TextBoxFor(m => m.City)</td><td> @Html.ValidationMessageFor(m=> m.City)</td></tr>
+          <tr><td><p >@Html.LabelFor(m => m.Mobile)</p> </td><td>@Html.TextBoxFor(m => m.Mobile)</td> <td> @Html.ValidationMessageFor(m=> m.Mobile)</td></tr>
+          
+          <tr><td><input type="submit" value="Sign Up"/></td></tr>
+                      
+            
+          }
+            
+                 
+          </body>  
+           
+    </html>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+
+        <style type="text/css">
+        .green
+        {
+            color: Green;
+        }
+        .red
+        {
+            color: Red;
+        }
+    </style>
+
+           <script>
+
+               $(document).ready(function () {
+
+                   $('#checking').hide();
+
+                   $('#b1').click(function () {
+
+                       var Email = $('#email').val();
+
+                       alert('email =' + email);
+                       $('#checking').show();
+                       $.getJSON("/Home/CheckUserName?email=" + Email, function (data) {
+                           $('#checking').hide();
+                           if (data == true) {
+                               $('#result').html("User already exists in database").addClass(red);
+
+                           }
+                           else {
+                               $('#result').html("User Name is available").addClass(green);
+                           }
+                       });
+
+                   });
+
+               });
+    </script>
+
+   
+  
+
+
+           
+<br />
+<br />
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

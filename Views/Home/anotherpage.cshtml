@@ -1,0 +1,100 @@
+﻿@model mywebproject.Models.Resume
+@{
+    ViewBag.Title = "ResumeWriting";
+ Layout="~/Views/Shared/_LayoutSec.cshtml";
+  }
+
+ <h2>Resume Writing </h2>
+<html>
+	<body>
+	
+		
+		<link href="~/Content/style.css" rel="stylesheet" />
+		
+
+		<div id="site_content">		
+			<div class="container">			
+				
+			<!-- Features -->
+				<div class="row">
+					<section class="8u">
+						
+					 <!-- Banner -->		
+						<div id="banner">
+							<a href="#"><img src="~/images/ppp1.jpg" alt="banner image" /></a>
+						</div>						
+						
+@*@foreach(var x in ViewBag.X)
+{					
+					
+			*@   
+                        
+                        <ul>
+                        @*@Html.ActionLink("Edit Resume", "EditResume", new { id = x.res_Id });*@
+							<li><a href="/Home/updateResume">Edit Resume</a></li>
+							<li><a href="/Home/ViewResume">View Resume</a></li>
+							<li><a href="/Home/DelItem">Delete Resume</a></li>
+								
+                 
+						
+						</ul>
+					}
+	           <!--  <form  method="post" action="~/Home/ADD">-->
+                          <form  method="post" action="~/Home/ADD" enctype="multipart/form-data" >
+                                  <div class="form_settings">      
+                        <br>Resume Title   :<input type="text" id="r" name="r"   >
+                        <h2>Contact Information</h2>
+                         
+                        <br>First Name    :<input type="text" id="f_n" name="f_n" >
+                        <br>last Name     :<input type="text" id="l_n" name="l_n"  >
+                        <br>National Id Card No  :<input type="text" id="nic1" name="nic1"  >
+                        <br>Email         :<input type="text" id="e" name="e" >
+                        <br>Mobile        :<input type="text"id="m"  name="m"  >
+                              <br>Address       :<input type="text"id="ad1"  name="ad1" >
+                        <br>country       :<input type="text"id="count"  name="count" >
+                         
+                         
+                      <br><span>City</span><select id="Select1" name="name"><option value="1">Lahore</option><option value="2">Karachi</option>
+                       <option value="2">Islamabad</option><option value="2">Faisalbad</option><option value="2">Peshawer</option> </select>
+                               <p>       </p>
+                     
+                            <h2>Employement Details</h2>
+                         
+                         <br>Experience      : <input type="text" id="e1" name="e1"   >
+                          <br>Skills         :<input type="text" id="skill1" name="skill1"    >
+                
+                          <br>Your company   :<input type="text" id="comp" name="comp"  >
+                          <br>Function Area  :<input type="text" id="f_a" name="f_a"  >
+                          <p>       </p>
+                      
+                            <h2>Education Background</h2>
+                         
+                          <br>Education      :<input type="text" id="edu" name="edu"  >
+                          <br>Bachulars     :<input type="text" id="b1" name="b1" >
+                          <br>Masters        :<input type="text" id="m1" name="m1" >
+                          <br>Cgpa           :<input type="text" id="cgpa" name="cgpa" >
+
+                              <p> Upload <input type="file"  name="file" id="file"/></p>
+                             @* <p> Upload <input type="file"  name="image" id="file"/></p>*@
+                          
+                     
+                            <input type="submit" value="Post">
+                                      </div>
+                            </form>
+					</section>
+                            
+       
+					<section class="4u">
+						<div id="sidebar">
+							
+							
+							
+						</div>
+					</section>
+					
+				</div>
+		    </div>
+		</div>		
+			
+	</body>
+</html>

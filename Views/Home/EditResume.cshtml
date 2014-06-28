@@ -1,0 +1,87 @@
+﻿@model mywebproject.Models.Resume
+
+@{
+    ViewBag.Title = "EditResume";
+    Layout = "~/Views/Shared/_LayoutSec.cshtml";
+  }
+<h2>EditResume</h2>
+<div>
+@*<img src="~/images/@ViewBag.X.Imagepath" alt="" width="40%" height="40%"/>*@
+        </div>
+<html>
+	<body>
+		<
+		
+		<link href="~/Content/style.css" rel="stylesheet" />
+		
+	<!--	<div id="site_content">		
+			<div class="container">			
+				
+			<!-- Features -->
+		<!--	<	<div class="row">-->
+					<section class="8u">
+						
+					 <!-- Banner -->		
+						<div id="banner">
+							<a href="#"><img src="~/images/ppp1.jpg" alt="banner image" /></a>
+						</div>						
+					
+						  <div class="form_settings">
+                <form action="~/Home/EditResume1/@ViewBag.X.res_Id" method="get" >
+                            <br>Resume Title   :<input type="text" value="@ViewBag.X.Resume_title" name="r">
+                            <input type="submit" value="Search">
+                        <h2>Contact Information</h2>
+                         
+                        <br>First Name    :<input type="text"  value="@ViewBag.X.First_name" name="f_n">
+                        <br>last Name     :<input type="text" value="@ViewBag.X.Last_name" name="l_n">
+                        <br>National Id Card No  :<input type="text" value="@ViewBag.X.Nic" name="nic1">
+                        <br>Email         :<input type="text" value="@ViewBag.X.Email" name="e">
+                        <br>Mobile        :<input type="text" value="@ViewBag.X.Mobile" name="m">
+                        <br>country       :<input type="text" value="@ViewBag.X.country"  name="count">
+                         
+                         
+                      <br><span>City</span><select id="Select1" name="name"><option value="1">Lahore</option><option value="2">Karachi</option>
+                       <option value="2">Islamabad</option><option value="2">Faisalbad</option><option value="2">Peshawer</option> </select>
+                               <p>       </p>
+                      
+                       
+                            <h2>Employement Details</h2>
+                         
+                         <br>Experience      : <input type="text" value=" @ViewBag.X.Experience" name="e1 ">
+                          <br>Skills         :<input type="text"  value="  @ViewBag.X.Skills" name="skill1">
+
+                          <br>Your company   :<input type="text" value=" @ViewBag.X.Company" name="comp  ">
+                          <br>Function Area  :<input type="text"  value= "@ViewBag.X.Func_Area" name="f_a  ">
+                          <p>       </p>
+                <!--     
+                            <h2>Education Background</h2>
+                         
+                          <br>Education      :<input type="text" name="email   ">
+                          <br>Batchulars     :<input type="text" name="email   ">
+                          <br>Masters        :<input type="text" name="email   ">
+                          <br>Cgpa           :<input type="text" name="email   ">
+                            <p>       </p> -->
+
+                                  <input type="submit" value="Post">
+                    
+                      </form>
+                        </div>                    
+					</section>
+
+					
+					<section class="4u">
+						<div id="sidebar">
+							
+							
+							
+						</div>
+					</section>
+
+        
+	</body>
+</html>
+
+			
+
+
+

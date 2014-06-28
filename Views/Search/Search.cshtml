@@ -1,0 +1,120 @@
+﻿ @{
+     ViewBag.Title = "Job Search";
+     Layout = "~/Views/Shared/_LayoutSec.cshtml";
+  }
+<h2>Job Seeker</h2>
+<html>
+	<body>
+	
+		<link href="~/Content/style.css" rel="stylesheet" />
+		
+		<div id="site_content">	
+			<div class="container">			
+				
+			<!-- Features -->
+				<div class="row">
+					<section class="8u">
+					
+					<!-- Banner -->		
+						<div id="banner">
+							<a href="#"><img src="~/images/g1.jpg" alt="banner image" /></a>
+						</div>
+						
+						<h1>Search Latest Jobs in Pakistan</h1>
+                      
+            <div class="thumbnail">
+                  
+                   @*    
+                    <img src="~/Content/themes/ii.jpg" alt="Sample Image">*@
+                    <br>
+                    <div class="well caption">
+                        </div>
+            <select id="search">
+                <option > Tittle </option>
+                
+                <option > Company </option>
+            </select>
+        <div id="view">
+            <table id=table1>
+                </table>
+        </div>
+        <div>
+            <table id=table>
+                </table>
+            
+        </div>
+         <script>
+             $(document).ready(function () {
+                 $('#search').change(function () {
+                     value = $('#search').val();
+                     $('#table1 tr').remove();
+                     $('#table tr').remove();
+                     //search through title
+
+                     if (value == "Tittle") {
+                         $('#table1').append('<tr><td>@Html.Label("Tittle")</td><td><input type=text id=tittle  /></td><td><Button id=but>Search</Button></td></tr>');
+                         $('#but').click(function () {
+                             tittle = $('#tittle').val();
+                             $.getJSON("../Product/getProductDetails?tittle=" + tittle, function (data) {
+
+                                 $('#table tr').remove();
+                                 $.each(data, function (i, item) {
+                                     $('#table').append('<tr class="span3"><td><div class="thumbnail"> <img src="../../Files/' + item.Pictures + '" alt="Sample Image" width="100" height="100">  <div class="caption"><h4>' + item.Tittle + '</h4><table><tr><td><form method="Post" action="../../Home/Details"><input type=Hidden name="tittle" value="' + item.Tittle + '" /><input type=submit class="btn btn-info" value="Details"/></form></td> <td><form method="Post" action="../../Home/Showpictures"><input type=Hidden name="tittle" value="' + item.Tittle + '" /><input type=submit class="btn btn-info" value="Pictures"/></form></td></tr> </table></div></div></td></tr>  ');
+
+                                 });
+
+                             });
+                         });
+                     }
+                         
+                         //search throuh company name
+                     else if (value == "Company") {
+                         $('#table1').append('<tr><td>@Html.Label("Company")</td><td><input type=text id=tittle  /></td><td><Button id=but>Search</Button></td></tr>');
+                         $('#but').click(function () {
+                             tittle = $('#tittle').val();
+                             $.getJSON("../Product/getProductDetailsByCompany?company=" + tittle, function (data) {
+
+                                 $('#table tr').remove();
+                                 $.each(data, function (i, item) {
+                                     $('#table').append('<tr class="span3"><td><div class="thumbnail"> <img src="../../Files/' + item.Pictures + '" alt="Sample Image" width="100" height="100">  <div class="caption"><h4>' + item.Tittle + '</h4><table><tr><td><form method="Post" action="../../Home/Details"><input type=Hidden name="tittle" value="' + item.Tittle + '" /><input type=submit class="btn btn-info" value="Details"/></form></td> <td><form method="Post" action="../../Home/Showpictures"><input type=Hidden name="tittle" value="' + item.Tittle + '" /><input type=submit class="btn btn-info" value="Pictures"/></form></td></tr> </table></div></div></td></tr>  ');
+
+                                 });
+
+
+                             });
+                         });
+                     }
+
+
+                 });
+             });
+                </script>
+
+
+    </div>
+
+   
+  
+   
+						
+						
+				
+						
+						
+					</section>
+
+					
+					<section class="4u">
+						<div id="sidebar">
+							
+							
+							
+						</div>
+					</section>
+					
+				</div>
+		    </div>
+		</div>		
+	
+	</body>
+</html>

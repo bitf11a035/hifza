@@ -1,0 +1,52 @@
+﻿@model mywebproject.Models.Resume
+
+@{
+    ViewBag.Title = "DeleteResume";
+    Layout = "~/Views/Shared/_LayoutSec.cshtml";
+  }
+
+
+<h2>DeleteResume</h2>
+
+
+
+<html>
+	<body>
+		
+		<link href="~/Content/style.css" rel="stylesheet" />
+		
+		<div id="site_content">		
+			<div class="container">			
+				
+			<!-- Features -->
+				<div class="row">
+					<section class="8u">
+						
+					 <!-- Banner -->		
+						<div id="banner">
+							<a href="#"><img src="~/images/D.jpg" alt="banner image" /></a>
+						</div>						
+					
+						<div class="editor-label">
+            @Html.LabelFor(model => model.Resume_title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Resume_title)
+          </div>             
+					</section>
+
+					
+					<section class="4u">
+						<div id="sidebar">
+							
+							
+							
+						</div>
+					</section>
+					
+				</div>
+		    </div>
+		</div>		
+		
+	</body>
+</html>
